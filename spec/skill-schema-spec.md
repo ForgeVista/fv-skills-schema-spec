@@ -315,13 +315,13 @@ edges:
 
 ```bash
 # Validate a skill library (auto-discovers skills-manifest.yaml)
-fv-skills-viewer-spec ./path/to/skill-library/
+fv-skills-schema-spec ./path/to/skill-library/
 
 # Strict mode: warnings become errors
-fv-skills-viewer-spec ./path/to/skill-library/ --strict
+fv-skills-schema-spec ./path/to/skill-library/ --strict
 
 # JSON output for programmatic consumption
-fv-skills-viewer-spec ./path/to/skill-library/ --json
+fv-skills-schema-spec ./path/to/skill-library/ --json
 ```
 
 ### MCP
@@ -416,7 +416,7 @@ This means any skill library works out of the box — the manifest adds strictne
 
 ```bash
 # Scan existing files and generate a draft manifest
-fv-skills-viewer-spec ./path/to/library/ --init
+fv-skills-schema-spec ./path/to/library/ --init
 ```
 
 This reads all SKILL.md files, infers the vocabulary from existing values, and writes a draft `skills-manifest.yaml` that the author can review and tighten.
@@ -454,5 +454,5 @@ tags:
 The validator reads both and reports which files need migration. The `--migrate` flag rewrites files in-place:
 
 ```bash
-fv-skills-viewer-spec ./path/to/library/ --migrate
+fv-skills-schema-spec ./path/to/library/ --migrate
 ```
