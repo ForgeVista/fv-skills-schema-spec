@@ -233,6 +233,25 @@ constraints:
   retro_not_in_edges: true
 ```
 
+### Modeling approval-gated social account workflows
+
+Use `dof: 2` for steps that change an external account and require approval
+before execution. This keeps the skill deterministic enough for validators while
+making the human review boundary explicit in the graph.
+
+```yaml
+steps:
+  - title: "Collect public X/Twitter source context"
+    dof: 1
+    description: Read supplied source packets and preserve URLs, authors, and capture dates.
+  - title: "Prepare account-changing action"
+    dof: 2
+    description: Draft the post or reply, then require explicit user approval before publishing.
+  - title: "Record the approved action"
+    dof: 1
+    description: Store only the approved action summary and source references.
+```
+
 ---
 
 ## 3. Skill File Frontmatter Schema
